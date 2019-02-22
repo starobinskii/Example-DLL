@@ -1,7 +1,7 @@
 #include <iostream>
 
 #if defined(WINDOWS)
-
+//// Solution for Windows
 #include <windows.h>
 
 int callDllFunction(bool showOutput){
@@ -19,9 +19,8 @@ int callDllFunction(bool showOutput){
 
     return returnCode;
 }
-
 #elif defined(MACOS) 
-
+//// Solution for macOS
 #include <dlfcn.h>
 
 extern "C" typedef int (*dllFunctionType)(bool showOutput);
@@ -38,9 +37,8 @@ int callDllFunction(bool showOutput){
 
     return returnCode;
 }
-
 #else
-
+//// Solution for Linux
 #include <dlfcn.h>
 
 extern "C" typedef int (*dllFunctionType)(bool showOutput);
@@ -57,7 +55,6 @@ int callDllFunction(bool showOutput){
 
     return returnCode;
 }
-
 #endif
 
 int main(const int argc, const char *argv[]){
